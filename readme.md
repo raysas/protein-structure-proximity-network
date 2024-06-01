@@ -1,10 +1,24 @@
-## Protein Structure Proximity Network
+# Protein Structure Proximity Network
 
 This project aims to create a network out of a protein structure stored in the standard PDB format.
 
 The proximity network (in this context) of a protein is defined as a graph $G=(V, E)$ where $V$ is the set of amino acid residues (indexed) within the protein sequence and $E$ is the set of edges connecting these residues. An edge is established between two residues when they are close to each other, i.e., distance is small and will be taken $=<8Å$ by default.
 
+
+
+<!-- <iframe src="test/karate_graph.html" width="100%" height="600"></iframe> -->
+
+## Installation
+
+First clone this repository locally:
+
+```bash
+git clone https://github.com/raysas/protein-structure-proximity-network.git
+cd protein-structure-proximity-network
+```
 ### Dependencies:
+
+Install the following dependencies through pip: 
 
 - Biopython: _PDB module to extract and parse PDB files_
 - NetworkX: _for graph construction and analysis_
@@ -14,17 +28,13 @@ The proximity network (in this context) of a protein is defined as a graph $G=(V
 - Seaborn
 - Matplotlib
 
-<!-- <iframe src="test/karate_graph.html" width="100%" height="600"></iframe> -->
-
-### Installation
-
-First clone this repository locally:
-
 ```bash
-git clone https://github.com/raysas/protein-structure-proximity-network.git
+pip install -r requirements.txt
 ```
 
 ### Running the code
+
+#### 1. Through terminal (original)
 
 The workflow takes from a use a pdb id to generate the network. All that has to be done is to run the following command on the terminal:
 
@@ -40,6 +50,8 @@ python code/generate_network.py <pdb_id> <distance_threshold>
 
 _Make sure you input a valid PDB id. Check [here](https://www.rcsb.org/docs/general-help/identifiers-in-pdb) for more info._
 
+#### 2. Import python module
+
 If you wish you can run each function from extracting the pdb file to visualzing tee network by importing the python module and calling the functions.
 
 ```python
@@ -48,6 +60,10 @@ sys.path.append('<path-to-this-repo>/code')
 
 from generate_network import *
 ```
+
+#### 3. Run the Jupyter notebook on Colab
+
+_Under construction_
 
 ***p.s.** this is a work in progress and the code is not yet optimized. More features to be added soon listed in the [to-do](./TODO.md) list*
 
@@ -75,6 +91,8 @@ The network is then generated (by default threshold distance=8) and saved in gra
 <p align='center'>
 <img src='./images/6xdc_net.png' alt='protein proximity network' width=70%>
 </p>
+
+Subsequent analysis and visualization using softwares and tools like networkx, PyG, Gephi and CytoScape can be done out of the generated `.graphml` network file.
 
 
 ## References
