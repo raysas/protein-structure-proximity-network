@@ -11,6 +11,8 @@ The proximity network (in this context) of a protein is defined as a graph $G=(V
 - NetworkX: _for graph construction and analysis_
 - Pyvis: _for netwokk visualization_
 
+<!-- <iframe src="test/karate_graph.html" width="100%" height="600"></iframe> -->
+
 ## References
 
 Hamelryck, T., Manderick, B. (2003) PDB parser and structure class implemented in Python. Bioinformatics 19: 2308–2310
