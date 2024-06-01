@@ -18,11 +18,15 @@ cd protein-structure-proximity-network
 ```
 ### Dependencies:
 
+_Main libraries_
+
+<img src='images/biopython.png' width=20%> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src='images/networkx.svg' width=50%>
+
 Install the following dependencies through pip: 
 
-- Biopython: _PDB module to extract and parse PDB files_
+- Biopython: _the PDB module to extract and parse PDB files_
 - NetworkX: _for graph construction and analysis_
-- Pyvis: _for netwokk visualization_
+- Pyvis
 - Pandas
 - Numpy
 - Seaborn
@@ -61,9 +65,9 @@ sys.path.append('<path-to-this-repo>/code')
 from generate_network import *
 ```
 
-#### 3. Run the Jupyter notebook on Colab
+<!-- #### 3. Run the Jupyter notebook on Colab
 
-_Under construction_
+You can also run the code on a Jupyter notebook on Google Colab. Either add this repository to you google drive or connect it to github (might give issues without saving the PDB file anywhere) from [here](). -->
 
 ***p.s.** this is a work in progress and the code is not yet optimized. More features to be added soon listed in the [to-do](./TODO.md) list*
 
@@ -92,10 +96,17 @@ The network is then generated (by default threshold distance=8) and saved in gra
 <img src='./images/6xdc_net.png' alt='protein proximity network' width=70%>
 </p>
 
+### Extensions
+
 Subsequent analysis and visualization using softwares and tools like networkx, PyG, Gephi and CytoScape can be done out of the generated `.graphml` network file.
+
+Recent works have been using protein structural networks to apply deep learning teachniques like Graph Neural Networks (GNNs) and Graph attention Networks (GATs) ([nature paper reference](https://www.nature.com/articles/s41467-023-43166-6)).
 
 
 ## References
 
 Hamelryck, T., Manderick, B. (2003) PDB parser and structure class implemented in Python. Bioinformatics 19: 2308–2310
 
+Hagberg, A., Swart, P. J., & Schult, D. A. (2008). Exploring network structure, dynamics, and function using NetworkX (No. LA-UR-08-05495; LA-UR-08-5495). Los Alamos National Laboratory (LANL), Los Alamos, NM (United States).
+
+_This repository is licensed under the MIT License._
