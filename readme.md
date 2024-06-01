@@ -18,9 +18,7 @@ cd protein-structure-proximity-network
 ```
 ### Dependencies:
 
-_Main libraries_
-
-<img src='images/biopython.png' width=20% height=60> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src='images/networkx.svg' width=35% height=50>
+<img src='images/biopython.png' width=10% height=27> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src='images/networkx.svg' width=17% height=27>
 
 Install the following dependencies through pip: 
 
