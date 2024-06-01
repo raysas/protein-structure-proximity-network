@@ -1,3 +1,5 @@
-# code/*_test.ipynb
+code/*_test.ipynb
 code/*/
 test/
+lib/
+obsolete/
