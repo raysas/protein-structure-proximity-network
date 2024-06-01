@@ -6,6 +6,12 @@ The proximity network (in this context) of a protein is defined as a graph $G=(V
 
 ## Dependencies:
 
-- Biopython: _to extract and parse PDB files_
+- Biopython: _PDB module to extract and parse PDB files_
+- Nglview: _for protein structure visualization_
 - NetworkX: _for graph construction and analysis_
 - Pyvis: _for netwokk visualization_
+
+## References
+
+Hamelryck, T., Manderick, B. (2003) PDB parser and structure class implemented in Python. Bioinformatics 19: 2308–2310
+
