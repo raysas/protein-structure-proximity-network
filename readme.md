@@ -76,7 +76,7 @@ You can also run the code on a Jupyter notebook on Google Colab. Either add this
 In the data folder you will find a new directory of named by pdb_id after running
 
 
-data
+data  
  └──  pdb_id  
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── log.txt  
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──pdb_id.pdb  
