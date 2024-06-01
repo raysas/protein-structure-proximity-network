@@ -20,7 +20,7 @@ cd protein-structure-proximity-network
 
 _Main libraries_
 
-<img src='images/biopython.png' width=20%> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src='images/networkx.svg' width=50%>
+<img src='images/biopython.png' width=25% height=50> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src='images/networkx.svg' width=35% height=50>
 
 Install the following dependencies through pip: 
 
@@ -65,9 +65,9 @@ sys.path.append('<path-to-this-repo>/code')
 from generate_network import *
 ```
 
-<!-- #### 3. Run the Jupyter notebook on Colab
+#### 3. Run the Jupyter notebook on Colab
 
-You can also run the code on a Jupyter notebook on Google Colab. Either add this repository to you google drive or connect it to github (might give issues without saving the PDB file anywhere) from [here](). -->
+You can also run the code on a Jupyter notebook on Google Colab. Either add this repository to you google drive or connect it to github (might give issues without saving the PDB file anywhere).
 
 ***p.s.** this is a work in progress and the code is not yet optimized. More features to be added soon listed in the [to-do](./TODO.md) list*
 
@@ -109,4 +109,4 @@ Hamelryck, T., Manderick, B. (2003) PDB parser and structure class implemented i
 
 Hagberg, A., Swart, P. J., & Schult, D. A. (2008). Exploring network structure, dynamics, and function using NetworkX (No. LA-UR-08-05495; LA-UR-08-5495). Los Alamos National Laboratory (LANL), Los Alamos, NM (United States).
 
-_This repository is licensed under the MIT License._
+_This repository is licensed under the [MIT License](./LICENSE)._

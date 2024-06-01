@@ -18,7 +18,6 @@ aa = {
     'PRO': 'P', 'GLN': 'Q', 'ARG': 'R', 'SER': 'S',
     'THR': 'T', 'VAL': 'V', 'TRP': 'W', 'TYR': 'Y'
 }
-
 def get_PDB_structure(pdb_id:str)->PDB.Structure.Structure:
     '''
     Takes a pdb id and returns its sructure
@@ -34,9 +33,10 @@ def get_PDB_structure(pdb_id:str)->PDB.Structure.Structure:
     -------
     - structure: Bio.PDB.Structure.Structure, structure of the pdb file
     '''
+    pdb_id=pdb_id.lower()
     pdb_list = PDB.PDBList()
     pdb_list.retrieve_pdb_file(pdb_id, pdir=f'data/{pdb_id}', file_format='pdb')
-    os.rename(f'data/{pdb_id}/pdb{pdb_id.lower()}.ent', f'data/{pdb_id}/{pdb_id}.pdb')
+    os.rename(f'data/{pdb_id}/pdb{pdb_id}.ent', f'data/{pdb_id}/{pdb_id}.pdb')
         
     parser = PDB.PDBParser()
     structure = parser.get_structure(pdb_id, f'data/{pdb_id}/{pdb_id}.pdb')
@@ -215,7 +215,7 @@ def visualize_network(G:nx.Graph, positions)->Network:
 create_2d_layout = lambda d: {k: v[:2] for k, v in d.items()} #this is used to convert pos from 3d space to 2d for viz
 
 def main():
-    t=0.8
+    t=8
     if len(sys.argv)==1:
         # logging.error('<> User did not provide a pdb id as argument to teh workflow')
         print('<> User did not provide a pdb id as argument to teh workflow')
@@ -239,7 +239,7 @@ def main():
     log_file.write(f'<> Retrieved the structure {pdb_id} from PDB'); print(f'<> Retrieved the structure {pdb_id} from PDB')
 
     sequence=get_residues_coordinates(struct)
-    df=pd.DataFrame(create_distance_map(sequence), index=sequence.keys(), columns=sequence.keys())
+    df=create_distance_map(sequence)
     log_file.write(f'<> Created the distance map for the residues in the protein {pdb_id}'); print(f'<> Created the distance map for the residues in the protein {pdb_id}')
 
     visualize_map(df, id=pdb_id)
@@ -253,7 +253,7 @@ def main():
 
     net=visualize_network(G, positions)
     net.show(f'data/{pdb_id}/{pdb_id}_{t}_network_viz.html')
-    log_file.write(f'<> Visualization of the network graph for the protein {pdb_id} with a distance threshold of {t} and saved it in test/protein_graph.html'); print(f'<> Visualization of the network graph for the protein {pdb_id} with a distance threshold of {t} and saved it in test/protein_graph.html')
+    log_file.write(f'<> Visualization of the network graph for the protein {pdb_id} with a distance threshold of {t} and saved it in data/{pdb_id}/{pdb_id}_{t}_network_viz.html'); print(f'<> Visualization of the network graph for the protein {pdb_id} with a distance threshold of {t} and saved it in data/{pdb_id}/{pdb_id}_{t}_network_viz.html')
 
     log_file.write(f'<> Workflow completed successfully'); print(f'<> Workflow completed successfully')
     log_file.close()
