@@ -9,7 +9,7 @@ import matplotlib.colors as mcolors
 from pyvis.network import Network
 import seaborn as sns
 
-os.chdir(os.path.expanduser('..'))
+# os.chdir(os.path.expanduser('..'))
 
 aa = {
     'ALA': 'A', 'CYS': 'C', 'ASP': 'D', 'GLU': 'E',
@@ -224,6 +224,8 @@ def main():
         # the user has provided a distance threshold
         t=float(sys.argv[2])
     pdb_id = sys.argv[1]
+
+    # print(os.getcwd())
 
     # create file {pdb_id}/log.txt
     os.makedirs(f'data/{pdb_id}', exist_ok=True)
