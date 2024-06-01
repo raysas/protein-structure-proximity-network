@@ -205,7 +205,7 @@ def visualize_network(G:nx.Graph, positions)->Network:
         net.add_node(node, x=x, y=y, color=color)
 
     for edge in G.edges:
-        inv_dist = G.get_edge_data(edge[0], edge[1])['weight']
+        inv_dist = 1/G.get_edge_data(edge[0], edge[1])['weight']
         net.add_edge(edge[0], edge[1], value=inv_dist)
         net.add_edge(edge[0], edge[1])
     

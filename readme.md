@@ -88,7 +88,8 @@ After retreiving teh PDB structure, it will extract residues and coordinates inf
 <img src='./images/6xdc_contact_map.png' alt='contact map' width=70%>
 </p>
 
-The network is then generated (by default threshold distance=8) and saved in graphml format. The network is also visualized in an interactive html file. The layout is set based on the x and y coordinates for each residues.
+The network is then generated (by default threshold distance=8) and saved in graphml format. The network is also visualized in an interactive html file. The layout is set based on the x and y coordinates for each residues (plane z=0).
+
 
 <p align='center'>
 <img src='./images/6xdc_net.png' alt='protein proximity network' width=70%>
