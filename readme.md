@@ -2,7 +2,7 @@
 
 This project aims to create a network out of a protein structure stored in the standard PDB format.
 
-The proximity network (in this context) of a protein is defined as a graph $G=(V, E)$ where $V$ is the set of amino acid residues (indexed) within the protein sequence and $E$ is the set of edges connecting these residues. An edge is established between two residues when they are close to each other, i.e., distance is small and will be taken $=<8Å$ by default.
+The proximity network (in this context) of a protein is defined as a graph $G=(V, E)$ where $V$ is the set of amino acid residues (indexed) within the protein sequence and $E$ is the set of edges connecting these residues. An edge is established between two residues when they are close to each other, i.e., euclidean distance is small and will be taken $<8Å$ by default.
 
 
 
@@ -16,14 +16,12 @@ First clone this repository locally:
 git clone https://github.com/raysas/protein-structure-proximity-network.git
 cd protein-structure-proximity-network
 ```
-### Dependencies:
-
-<img src='images/biopython.png' width=10% height=27> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src='images/networkx.svg' width=17% height=27>
+### Dependencies:&nbsp;&nbsp;&nbsp;&nbsp; <img src='images/image.png' width=7% ><img src='images/biopython.png' width=10% > 
 
 Install the following dependencies through pip: 
 
-- Biopython: _the PDB module to extract and parse PDB files_
-- NetworkX: _for graph construction and analysis_
+- Biopython
+- NetworkX
 - Pyvis
 - Pandas
 - Numpy

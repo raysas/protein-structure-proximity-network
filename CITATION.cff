@@ -3,5 +3,5 @@ authors:
     given-names: Rayane
 title: Protein structure proximity network generator
 version: 1.0.0
-url: https://github.com/raysas/capstone-project
+url: https://github.com/raysas/protein-structure-proximity-network
 license: MIT
