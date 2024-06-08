@@ -231,25 +231,25 @@ def main():
     os.makedirs(f'data/{pdb_id}', exist_ok=True)
     # open(f'{pdb_id}/log.txt', 'w').close()
 
-    log_file=open(f'data/{pdb_id}/log.txt', 'w')
+    log_file=open(f'data/{pdb_id}/output.log', 'w')
     # logging.basicConfig(filename=f'{pdb_id}/log.txt', filemode='w', format='%(name)s - %(levelname)s - %(message)s')
 
-    log_file.write(f'<> Starting the workflow for the pdb id: {pdb_id}'); print(f'<> Starting the workflow for the pdb id: {pdb_id}')
-    log_file.write(f'<> Using a distance threshold of {t}'); print(f'<> Using a distance threshold of {t}')
+    log_file.write(f'<> Starting the workflow for the pdb id: {pdb_id}\n'); print(f'<> Starting the workflow for the pdb id: {pdb_id}')
+    log_file.write(f'<> Using a distance threshold of {t}\n'); print(f'<> Using a distance threshold of {t}')
 
     struct=get_PDB_structure(pdb_id) #this will save it in data/
-    log_file.write(f'<> Retrieved the structure {pdb_id} from PDB'); print(f'<> Retrieved the structure {pdb_id} from PDB')
+    log_file.write(f'<> Retrieved the structure {pdb_id} from PDB\n'); print(f'<> Retrieved the structure {pdb_id} from PDB')
 
     sequence=get_residues_coordinates(struct)
     df=create_distance_map(sequence)
-    log_file.write(f'<> Created the distance map for the residues in the protein {pdb_id}'); print(f'<> Created the distance map for the residues in the protein {pdb_id}')
+    log_file.write(f'<> Created the distance map for the residues in the protein {pdb_id}\n'); print(f'<> Created the distance map for the residues in the protein {pdb_id}')
 
     visualize_map(df, id=pdb_id)
-    log_file.write(f'<> Visualization of the contact map for the residues in data/{pdb_id}/{pdb_id}_contact_map.png '); print(f'<> Visualization of the contact map for the residues in data/{pdb_id}/{pdb_id}_contact_map.png')
+    log_file.write(f'<> Visualization of the contact map for the residues in data/{pdb_id}/{pdb_id}_contact_map.png \n'); print(f'<> Visualization of the contact map for the residues in data/{pdb_id}/{pdb_id}_contact_map.png')
 
     G = create_network(df, threshold=t)
     nx.write_graphml(G, f'data/{pdb_id}/{pdb_id}_{t}_network.graphml')
-    log_file.write(f'<> Created the network graph for the protein {pdb_id} with a distance threshold of {t} and saved it in data/{pdb_id}/{pdb_id}_{t}_network.graphml'); print(f'<> Created the network graph for the protein {pdb_id} with a distance threshold of {t} and saved it in data/{pdb_id}/{pdb_id}_{t}_network.graphml')
+    log_file.write(f'<> Created the network graph for the protein {pdb_id} with a distance threshold of {t} and saved it in data/{pdb_id}/{pdb_id}_{t}_network.graphml\n'); print(f'<> Created the network graph for the protein {pdb_id} with a distance threshold of {t} and saved it in data/{pdb_id}/{pdb_id}_{t}_network.graphml')
 
     positions = create_2d_layout(sequence)
 
@@ -257,7 +257,7 @@ def main():
     net.show(f'data/{pdb_id}/{pdb_id}_{t}_network_viz.html')
     log_file.write(f'<> Visualization of the network graph for the protein {pdb_id} with a distance threshold of {t} and saved it in data/{pdb_id}/{pdb_id}_{t}_network_viz.html'); print(f'<> Visualization of the network graph for the protein {pdb_id} with a distance threshold of {t} and saved it in data/{pdb_id}/{pdb_id}_{t}_network_viz.html')
 
-    log_file.write(f'<> Workflow completed successfully'); print(f'<> Workflow completed successfully')
+    log_file.write(f'---------------------------------------------------\n<> Workflow completed successfully\n---------------------------------------------------'); print(f'<> Workflow completed successfully')
     log_file.close()
 
 

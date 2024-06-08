@@ -3,3 +3,8 @@ code/*/
 test/
 lib/
 obsolete/
+
+# --hiding some test outputs
+data/1aki
+data/1iyt
+data/8tim
