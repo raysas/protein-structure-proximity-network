@@ -71,7 +71,6 @@ You can also run the code on a Jupyter notebook on Google Colab. Either add this
 
 In the data folder you will find a new directory of named by pdb_id after running
 
-
 data  
  └──  pdb_id  
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── output.log  
@@ -80,13 +79,23 @@ data
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──pdb_id_t_network.graphml  
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; └──pdb_id_t_network_viz.html  
 
+The output.log file contains the log of the process. The pdb_id.pdb file is the PDB structure of the protein. The pdb_id_contact_map.png is the contact map of the protein. The pdb_id_t_network.graphml is the network in graphml format. The pdb_id_t_network_viz.html is the interactive visualization of the network generated from `pyvixz`.
+
+_Example run: building a network for [6xdc](https://www.rcsb.org/structure/6sdc)_
+
+```bash
+python code/generate_network.py 6xdc
+```
+
+The following changes will be made in the data folder:
 
 <p>
 <img src='./images/out-example-2.png' alt='1aki output example' width=40%>
 </p>
 
 
-After retreiving the PDB structure, it will extract residues and coordinates information to generate a contact map. The contact map is a heatmap of the distance between residues. Note that the coordinates for each residues are defined by the coordinates of their alpha carbon.
+After retrieving the PDB structure, it will extract residues and coordinates information to generate a contact map. The contact map is a heatmap of the distance between residues. Note that the coordinates for each residues are defined by the coordinates of their alpha carbon.
+
 
 <p align='center'>
 <img src='./images/6xdc_contact_map.png' alt='contact map' width=70%>
