@@ -8,3 +8,6 @@ obsolete/
 data/1aki
 data/1iyt
 data/8tim
+
+# --hiding hidden dirs
+.*/
