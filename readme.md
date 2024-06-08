@@ -10,7 +10,7 @@ The proximity network (in this context) of a protein is defined as a graph $G=(V
 
 ## Installation
 
-First clone this repository locally:
+First clone this repository locally & enter it:
 
 ```bash
 git clone https://github.com/raysas/protein-structure-proximity-network.git
@@ -63,7 +63,7 @@ from generate_network import *
 
 #### 3. Run the Jupyter notebook on Colab
 
-You can also run the code on a Jupyter notebook on Google Colab. Either add this repository to you google drive or connect it to github (might give issues without saving the PDB file anywhere).
+You can also run the code on a Jupyter notebook ([this file](./code/application.ipynb)) on Google Colab. Either add this repository to you google drive or connect it to github (might give issues without saving the PDB file anywhere).
 
 ***p.s.** this is a work in progress and the code is not yet optimized. More features to be added soon listed in the [to-do](./TODO.md) list*
 
@@ -81,7 +81,7 @@ data
 
 The output.log file contains the log of the process. The pdb_id.pdb file is the PDB structure of the protein. The pdb_id_contact_map.png is the contact map of the protein. The pdb_id_t_network.graphml is the network in graphml format. The pdb_id_t_network_viz.html is the interactive visualization of the network generated from `pyvixz`.
 
-_Example run: building a network for [6xdc](https://www.rcsb.org/structure/6sdc)_
+_Example run: building a network for [6xdc](https://www.rcsb.org/structure/6xdc)_
 
 ```bash
 python code/generate_network.py 6xdc
@@ -89,7 +89,7 @@ python code/generate_network.py 6xdc
 
 The following changes will be made in the data folder:
 
-<p>
+<p align='center'>
 <img src='./images/out-example-2.png' alt='1aki output example' width=40%>
 </p>
 
