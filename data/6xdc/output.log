@@ -1,0 +1,9 @@
+<> Starting the workflow for the pdb id: 6xdc
+<> Using a distance threshold of 8
+<> Retrieved the structure 6xdc from PDB
+<> Created the distance map for the residues in the protein 6xdc
+<> Visualization of the contact map for the residues in data/6xdc/6xdc_contact_map.png 
+<> Created the network graph for the protein 6xdc with a distance threshold of 8 and saved it in data/6xdc/6xdc_8_network.graphml
+<> Visualization of the network graph for the protein 6xdc with a distance threshold of 8 and saved it in data/6xdc/6xdc_8_network_viz.html---------------------------------------------------
+<> Workflow completed successfully
+---------------------------------------------------
