@@ -1,4 +1,4 @@
-import logging
+# import logging
 import os, sys
 from Bio import PDB
 import networkx as nx
