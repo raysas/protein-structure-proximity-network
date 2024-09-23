@@ -5,9 +5,8 @@ lib/
 obsolete/
 
 # --hiding some test outputs
-data/1aki
-data/1iyt
-data/8tim
+data/*
+!data/6xdc/ # --showing some example outputs
 
 # --hiding hidden dirs
 .*/

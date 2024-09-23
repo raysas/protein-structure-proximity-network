@@ -237,10 +237,29 @@ def main():
     log_file.write(f'<> Starting the workflow for the pdb id: {pdb_id}\n'); print(f'<> Starting the workflow for the pdb id: {pdb_id}')
     log_file.write(f'<> Using a distance threshold of {t}\n'); print(f'<> Using a distance threshold of {t}')
 
-    struct=get_PDB_structure(pdb_id) #this will save it in data/
-    log_file.write(f'<> Retrieved the structure {pdb_id} from PDB\n'); print(f'<> Retrieved the structure {pdb_id} from PDB')
+    if (os.path.exists(f'{pdb_id}')): #so in case the odb was provided as a file path
+        path=pdb_id
+        pdb_id=os.path.basename(path)[:-4]
+        if not path.endswith('.pdb'):
+            print('<> The file provided is not a pdb file, please provide a valid pdb file')
+            log_file.write('<> The file provided is not a pdb file, please provide a valid pdb file')
+            sys.exit(1)
+
+        print(f'<> The structure in {path} file exists, no retrival will be done'); log_file.write(f'<> The structure in {path} file exists, no retrival will be done\n')
+        # -- cpying it to  f'data/{pdb_id}_PATH/{pdb_id}.pdb
+        os.makedirs(f'data/{pdb_id}', exist_ok=True)
+        os.system(f'cp {path} data/{pdb_id}/{pdb_id}.pdb')
+              
+        parser = PDB.PDBParser()
+        struct = parser.get_structure(pdb_id, f'data/{pdb_id}/{pdb_id}.pdb')
+    
+    else:
+        struct=get_PDB_structure(pdb_id) #this will save it in data/
+        log_file.write(f'<> Retrieved the structure {pdb_id} from PDB\n'); print(f'<> Retrieved the structure {pdb_id} from PDB')
 
     sequence=get_residues_coordinates(struct)
+    positions = create_2d_layout(sequence)
+
     df=create_distance_map(sequence)
     log_file.write(f'<> Created the distance map for the residues in the protein {pdb_id}\n'); print(f'<> Created the distance map for the residues in the protein {pdb_id}')
 
@@ -248,10 +267,14 @@ def main():
     log_file.write(f'<> Visualization of the contact map for the residues in data/{pdb_id}/{pdb_id}_contact_map.png \n'); print(f'<> Visualization of the contact map for the residues in data/{pdb_id}/{pdb_id}_contact_map.png')
 
     G = create_network(df, threshold=t)
-    nx.write_graphml(G, f'data/{pdb_id}/{pdb_id}_{t}_network.graphml')
-    log_file.write(f'<> Created the network graph for the protein {pdb_id} with a distance threshold of {t} and saved it in data/{pdb_id}/{pdb_id}_{t}_network.graphml\n'); print(f'<> Created the network graph for the protein {pdb_id} with a distance threshold of {t} and saved it in data/{pdb_id}/{pdb_id}_{t}_network.graphml')
+    for node in G.nodes:
+        G.nodes[node]['x'] = sequence[node][0]
+        G.nodes[node]['y'] = sequence[node][1]
+        G.nodes[node]['z'] = sequence[node][2]
 
-    positions = create_2d_layout(sequence)
+    log_file.write(f'<> Created the network graph for the protein {pdb_id} with a distance threshold of {t} and saved it in data/{pdb_id}/{pdb_id}_{t}_network.graphml\n'); print(f'<> Created the network graph for the protein {pdb_id} with a distance threshold of {t} and saved it in data/{pdb_id}/{pdb_id}_{t}_network.graphml')
+    nx.write_graphml(G, f'data/{pdb_id}/{pdb_id}_{t}_network.graphml')
+
 
     net=visualize_network(G, positions)
     net.show(f'data/{pdb_id}/{pdb_id}_{t}_network_viz.html')
@@ -263,3 +286,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+

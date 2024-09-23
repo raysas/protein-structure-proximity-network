@@ -121,4 +121,4 @@ Hamelryck, T., Manderick, B. (2003) PDB parser and structure class implemented i
 
 Hagberg, A., Swart, P. J., & Schult, D. A. (2008). Exploring network structure, dynamics, and function using NetworkX (No. LA-UR-08-05495; LA-UR-08-5495). Los Alamos National Laboratory (LANL), Los Alamos, NM (United States).
 
-_This repository is licensed under the [MIT License](./LICENSE)._
+_This repository is licensed under the [MIT License](./LICENSE), contributions are welcome!_
