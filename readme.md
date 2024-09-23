@@ -48,7 +48,7 @@ Or if you wish to set the distance threshold to a different value, you can run:
 python code/generate_network.py <pdb_id> <distance_threshold>
 ```
 
-_Make sure you input a valid PDB id. Check [here](https://www.rcsb.org/docs/general-help/identifiers-in-pdb) for more info._
+_Make sure you input a valid PDB id. Check [here](https://www.rcsb.org/docs/general-help/identifiers-in-pdb) for more info. You can also provide a pdb file path instead of an id, under testing - succesful trials so far._
 
 #### 2. Import python module
 
@@ -121,4 +121,16 @@ Hamelryck, T., Manderick, B. (2003) PDB parser and structure class implemented i
 
 Hagberg, A., Swart, P. J., & Schult, D. A. (2008). Exploring network structure, dynamics, and function using NetworkX (No. LA-UR-08-05495; LA-UR-08-5495). Los Alamos National Laboratory (LANL), Los Alamos, NM (United States).
 
-_This repository is licensed under the [MIT License](./LICENSE), contributions are welcome!_
+_This repository is licensed under the [MIT License](./LICENSE), contributions are welcome!_ 
+<!-- wanna mention citation file -->
+Don't forget to cite this repository if you use it in your work:
+
+```bibtex
+@software{Adam_Protein_structure_proximity,
+author = {Adam, Rayane},
+license = {MIT},
+title = {{Protein structure proximity network generator}},
+url = {https://github.com/raysas/protein-structure-proximity-network},
+version = {1.0.0}
+}
+```
