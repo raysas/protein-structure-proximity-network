@@ -6,7 +6,8 @@ obsolete/
 
 # --hiding some test outputs
 data/*
-!data/6xdc/ # --showing some example outputs
+!data/6xdc/ 
+!data/1cag/ # --showing some example outputs
 
 # --hiding hidden dirs
 .*/
